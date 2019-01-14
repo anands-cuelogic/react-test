@@ -20,53 +20,109 @@ const profile = props => {
   console.log(">>>>>>>>>Props ", props);
   return (
     <div>
-      <Grid container justify="center" alignItems="center">
-        <Card>
-          <CardHeader
-            avatar={
-              <Avatar arial-label="pic">
-                <img src={props.person.picture.thumbnail} />
-              </Avatar>
-            }
-            action={
-              <IconButton>
-                <MoreVert onClick={() => props.refreshImageHandler()} />
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        direction="row-reverse"
+        spacing={16}
+      >
+        <Grid item xs={12} md={4}>
+          <Card>
+            <CardHeader
+              avatar={
+                <Avatar arial-label="pic">
+                  <img src={props.person.picture.thumbnail} />
+                </Avatar>
+              }
+              action={
+                <IconButton>
+                  <MoreVert onClick={() => props.refreshImageHandler()} />
+                </IconButton>
+              }
+              title={
+                props.person.name.title.toUpperCase() +
+                ". " +
+                props.person.name.first.toUpperCase() +
+                " " +
+                props.person.name.last.toUpperCase()
+              }
+              subheader={props.person.email}
+            />
+
+            <CardMedia
+              style={{ height: 0, paddingTop: "56.25%" }}
+              image={props.person.picture.large}
+              title={props.person.name.first}
+            />
+            <CardContent>
+              <Typography paragraph>
+                <b>Address</b>
+              </Typography>
+              <Typography paragraph>
+                <b>Street:</b> {props.person.location.street}
+              </Typography>
+            </CardContent>
+
+            <CardActions disableActionSpacing>
+              <IconButton aria-label="Add to favorites">
+                <Favorite />
               </IconButton>
-            }
-            title={
-              props.person.name.title.toUpperCase() +
-              ". " +
-              props.person.name.first.toUpperCase() +
-              " " +
-              props.person.name.last.toUpperCase()
-            }
-            subheader={props.person.email}
-          />
 
-          <CardMedia
-            style={{ height: 0, paddingTop: "56.25%" }}
-            image={props.person.picture.large}
-            title={props.person.name.first}
-          />
-          <CardContent>
-            <Typography paragraph>
-              <b>Address</b>
-            </Typography>
-            <Typography paragraph>
-              <b>Street:</b> {props.person.location.street}
-            </Typography>
-          </CardContent>
+              <IconButton aria-label="Share">
+                <Share />
+              </IconButton>
+            </CardActions>
+          </Card>
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <Card>
+            <CardHeader
+              avatar={
+                <Avatar arial-label="pic">
+                  <img src={props.person.picture.thumbnail} />
+                </Avatar>
+              }
+              action={
+                <IconButton>
+                  <MoreVert onClick={() => props.refreshImageHandler()} />
+                </IconButton>
+              }
+              title={
+                props.person.name.title.toUpperCase() +
+                ". " +
+                props.person.name.first.toUpperCase() +
+                " " +
+                props.person.name.last.toUpperCase()
+              }
+              subheader={props.person.email}
+            />
 
-          <CardActions disableActionSpacing>
-            <IconButton aria-label="Add to favorites">
-              <Favorite />
-            </IconButton>
+            <CardMedia
+              style={{ height: 0, paddingTop: "56.25%" }}
+              image={props.person.picture.large}
+              title={props.person.name.first}
+            />
+            <CardContent>
+              <Typography paragraph>
+                <b>Address</b>
+              </Typography>
+              <Typography paragraph>
+                <b>Street:</b> {props.person.location.street}
+              </Typography>
+            </CardContent>
 
-            <IconButton aria-label="Share">
-              <Share />
-            </IconButton>
-          </CardActions>
-        </Card>
+            <CardActions disableActionSpacing>
+              <IconButton aria-label="Add to favorites">
+                <Favorite />
+              </IconButton>
+
+              <IconButton aria-label="Share">
+                <Share />
+              </IconButton>
+            </CardActions>
+          </Card>
+        </Grid>
       </Grid>
     </div>
   );

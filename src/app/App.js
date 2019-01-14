@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Profile from "../components/profile";
+import { Grid } from "@material-ui/core";
 
 class App extends Component {
   componentDidMount() {
@@ -10,7 +11,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        {/* <div>
+        <Grid container spacing={16}>
+          <Grid item xs>
+            {/* <div>
           Age: <span>{this.props.age}</span>
           <div>
             <button onClick={this.props.ageDown}>Age Down</button>
@@ -18,16 +21,18 @@ class App extends Component {
           </div>
           <div>
             <button onClick={this.props.image}>Image</button> */}
-        {this.props.person ? (
-          <Profile
-            person={this.props.person}
-            refreshImageHandler={() => this.props.image()}
-          />
-        ) : (
-          ""
-        )}
-        {/* </div>
+            {this.props.person ? (
+              <Profile
+                person={this.props.person}
+                refreshImageHandler={() => this.props.image()}
+              />
+            ) : (
+              ""
+            )}
+            {/* </div>
         </div> */}
+          </Grid>
+        </Grid>
       </div>
     );
   }
